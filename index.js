@@ -128,3 +128,17 @@ for (let i = 1; i < finances.length; i++) {
     }
 }
 console.log(`Greatest Increase in Profits: ${monthIncrease} ($${greatestProfitIncrease})`);
+
+// Calculate the greatest decrease in profits (date and amount) over the entire period
+let greatestProfitDecrease = 0;
+let monthDecrease;
+for (let i = 1; i < finances.length; i++) {
+    let currentProfit = finances [i][1];
+    let previousProfit = finances [i-1][1];
+    let increase = currentProfit - previousProfit;
+    if (increase < 0 && increase < greatestProfitDecrease) {
+        greatestProfitDecrease = increase;
+        monthDecrease = finances[i][0];
+    }
+}
+console.log(`Greatest Decrease in Profits: ${monthDecrease} ($${greatestProfitDecrease})`);
