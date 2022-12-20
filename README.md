@@ -18,7 +18,9 @@ After opening the page in your web browser, right click on the empty space withi
 
 ## Link
 
+To access the console-finances web page, you can use the link below:
 
+https://andzej-s.github.io/console-finances/
 
 ## Credits
 
