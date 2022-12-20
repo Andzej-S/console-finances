@@ -92,11 +92,9 @@ console.log('Financial Analysis');
 console.log('----------------------------');
 
 // Calculation of the  total number of months included in the dataset
-
 console.log('Total Months: ' + finances.length);
 
 // Calculation of the net total amount of Profit / Losses over the entire period
-
 let totalProfit = 0;
 for (let i = 0; i < finances.length; i++) {
     totalProfit += finances[i][1];
@@ -104,7 +102,6 @@ for (let i = 0; i < finances.length; i++) {
 console.log('Total: $' + totalProfit);
 
 // Calculate the average of the changes in Profit / Losses over the entire period
-
 let totalProfitChange = 0;
 for (let i = 1; i < finances.length; i++) {
     let currentProfit = finances[i][1];
@@ -117,3 +114,17 @@ averageProfitChange = totalProfitChange / (finances.length - 1);
 // Round up the output to 100th decimal place
 averageProfitChange = Math.round(averageProfitChange * 100) / 100;
 console.log('Average Change: $' + averageProfitChange);
+
+// Calculate the greatest increase in profits (date and amount) over the entire period
+let greatestProfitIncrease = 0;
+let monthIncrease;
+for (let i = 1; i < finances.length; i++) {
+    let currentProfit = finances [i][1];
+    let previousProfit = finances [i-1][1];
+    let increase = currentProfit - previousProfit;
+    if (increase > 0 && increase > greatestProfitIncrease) {
+        greatestProfitIncrease = increase;
+        monthIncrease = finances[i][0];
+    }
+}
+console.log(`Greatest Increase in Profits: ${monthIncrease} ($${greatestProfitIncrease})`);
