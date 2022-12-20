@@ -88,6 +88,7 @@ var finances = [
 ];
 
 // Console log introduction to what this website is about
+console.log('Andzej Streckul')
 console.log('Financial Analysis');
 console.log('----------------------------');
 
@@ -117,7 +118,9 @@ console.log('Average Change: $' + averageProfitChange);
 
 // Calculate the greatest increase in profits (date and amount) over the entire period
 let greatestProfitIncrease = 0;
+let greatestProfitDecrease = 0;
 let monthIncrease;
+let monthDecrease;
 for (let i = 1; i < finances.length; i++) {
     let currentProfit = finances [i][1];
     let previousProfit = finances [i-1][1];
@@ -126,19 +129,12 @@ for (let i = 1; i < finances.length; i++) {
         greatestProfitIncrease = increase;
         monthIncrease = finances[i][0];
     }
-}
-console.log(`Greatest Increase in Profits: ${monthIncrease} ($${greatestProfitIncrease})`);
 
 // Calculate the greatest decrease in profits (date and amount) over the entire period
-let greatestProfitDecrease = 0;
-let monthDecrease;
-for (let i = 1; i < finances.length; i++) {
-    let currentProfit = finances [i][1];
-    let previousProfit = finances [i-1][1];
-    let increase = currentProfit - previousProfit;
     if (increase < 0 && increase < greatestProfitDecrease) {
         greatestProfitDecrease = increase;
         monthDecrease = finances[i][0];
     }
 }
+console.log(`Greatest Increase in Profits: ${monthIncrease} ($${greatestProfitIncrease})`);
 console.log(`Greatest Decrease in Profits: ${monthDecrease} ($${greatestProfitDecrease})`);
