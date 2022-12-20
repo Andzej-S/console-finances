@@ -14,7 +14,7 @@ After opening the page in your web browser, right click on the empty space withi
 
 ## Screenshot
 
-![Screenshot-of-console-finances](/images/screenshot.JPG)
+![Screenshot-of-console-finances](/Images/Screenshot.JPG)
 
 ## Link
 
