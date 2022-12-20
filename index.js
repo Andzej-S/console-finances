@@ -102,3 +102,16 @@ for (let i = 0; i < finances.length; i++) {
     totalProfit += finances[i][1];
 }
 console.log('Total: $' + totalProfit);
+
+// Calculate the average of the changes in Profit / Losses over the entire period
+
+let totalProfitChange = 0;
+for (let i = 1; i < finances.length; i++) {
+    let currentProfit = finances[i][1];
+    let previousProfit = finances[i-1][1];
+    totalProfitChange += currentProfit - previousProfit;
+}
+console.log(totalProfitChange);
+let averageProfitChange;
+averageProfitChange = totalProfitChange / (finances.length - 1);
+console.log(averageProfitChange);
