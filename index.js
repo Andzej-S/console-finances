@@ -111,7 +111,9 @@ for (let i = 1; i < finances.length; i++) {
     let previousProfit = finances[i-1][1];
     totalProfitChange += currentProfit - previousProfit;
 }
-console.log(totalProfitChange);
 let averageProfitChange;
 averageProfitChange = totalProfitChange / (finances.length - 1);
-console.log(averageProfitChange);
+
+// Round up the output to 100th decimal place
+averageProfitChange = Math.round(averageProfitChange * 100) / 100;
+console.log('Average Change: $' + averageProfitChange);
