@@ -102,29 +102,21 @@ for (let i = 0; i < finances.length; i++) {
 }
 console.log('Total: $' + totalProfit);
 
-// Calculate the average of the changes in Profit / Losses over the entire period
+// Calculate Profit / Losses setup of a function that covers it all in one loop
 let totalProfitChange = 0;
-for (let i = 1; i < finances.length; i++) {
-    let currentProfit = finances[i][1];
-    let previousProfit = finances[i-1][1];
-    totalProfitChange += currentProfit - previousProfit;
-}
-let averageProfitChange;
-averageProfitChange = totalProfitChange / (finances.length - 1);
-
-// Round up the output to 100th decimal place
-averageProfitChange = Math.round(averageProfitChange * 100) / 100;
-console.log('Average Change: $' + averageProfitChange);
-
-// Calculate the greatest increase in profits (date and amount) over the entire period
 let greatestProfitIncrease = 0;
 let greatestProfitDecrease = 0;
 let monthIncrease;
 let monthDecrease;
+
+// Calculate the average of the changes in Profit / Losses over the entire period
 for (let i = 1; i < finances.length; i++) {
-    let currentProfit = finances [i][1];
-    let previousProfit = finances [i-1][1];
+    let currentProfit = finances[i][1];
+    let previousProfit = finances[i-1][1];
     let increase = currentProfit - previousProfit;
+    totalProfitChange += increase;
+
+// Calculate the greatest increase in profits (date and amount) over the entire period
     if (increase > 0 && increase > greatestProfitIncrease) {
         greatestProfitIncrease = increase;
         monthIncrease = finances[i][0];
@@ -136,5 +128,13 @@ for (let i = 1; i < finances.length; i++) {
         monthDecrease = finances[i][0];
     }
 }
+let averageProfitChange;
+averageProfitChange = totalProfitChange / (finances.length - 1);
+
+// Round up the output to 100th decimal place
+averageProfitChange = Math.round(averageProfitChange * 100) / 100;
+
+// Display outputs that were calculated in the Profit / Losses setup function
+console.log('Average Change: $' + averageProfitChange);
 console.log(`Greatest Increase in Profits: ${monthIncrease} ($${greatestProfitIncrease})`);
 console.log(`Greatest Decrease in Profits: ${monthDecrease} ($${greatestProfitDecrease})`);
